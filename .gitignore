@@ -6,5 +6,4 @@ authenticaton.pyc
 testalch.pyc
 testviews.pyc
 .data
-migrations
 .env
