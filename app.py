@@ -4,7 +4,8 @@ from flask_migrate import Migrate
 from dotenv import load_dotenv
 
 from api.agency import blueprint_agencies
-from api.agency_domain_whitelist import blueprint_agencies_domain_whitelist
+from api.agency_domain_whitelist import blueprint_agencies_domain_whitelists
+from api.broker import blueprint_brokers
 from api.common import blueprint_common
 from config.config import config
 from utils.extensions import db
@@ -36,6 +37,7 @@ def register_blueprints(app):
     """Register blueprints."""
     app.register_blueprint(blueprint_common)
     app.register_blueprint(blueprint_agencies)
-    app.register_blueprint(blueprint_agencies_domain_whitelist)
+    app.register_blueprint(blueprint_agencies_domain_whitelists)
+    app.register_blueprint(blueprint_brokers)
 
     return None

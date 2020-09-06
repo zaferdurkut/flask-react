@@ -54,3 +54,6 @@ config = {
     'production': ProductionConfig,
     'default': DevelopmentConfig
 }
+
+HERE_GEOCODING_URL = os.getenv('HERE_GEOCODING_URL')
+HERE_GEOCODING_API_KEY = os.getenv('HERE_GEOCODING_API_KEY')

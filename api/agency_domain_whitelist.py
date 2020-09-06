@@ -10,7 +10,7 @@ from schemas.agency_domain_whitelist import agency_domain_whitelist_list_schema,
 
 from marshmallow.exceptions import ValidationError
 
-blueprint_agencies_domain_whitelist = Blueprint("/api/agencies-domain-whitelist",
+blueprint_agencies_domain_whitelists = Blueprint("/api/agencies-domain-whitelist",
                                                 __name__,
                                                 url_prefix="/api/agencies-domain-whitelist")
 
@@ -18,24 +18,24 @@ blueprint_agencies_domain_whitelist = Blueprint("/api/agencies-domain-whitelist"
 class AgencyDomainWhitelistController(object):
 
     @staticmethod
-    @blueprint_agencies_domain_whitelist.route("/", methods=["GET"])
-    def get_all_agency():
+    @blueprint_agencies_domain_whitelists.route("/", methods=["GET"])
+    def get_all_agency_domain_whitelist():
         manager = AgencyDomainWhitelistManager()
         items = manager.get_all_agency_domain_whitelist()
         result = agency_domain_whitelist_list_schema.dump(items)
         return jsonify(result.data), 200
 
     @staticmethod
-    @blueprint_agencies_domain_whitelist.route("/<int:id>", methods=["GET"])
-    def get_agency(id):
+    @blueprint_agencies_domain_whitelists.route("/<int:id>", methods=["GET"])
+    def get_agency_domain_whitelist(id):
         manager = AgencyDomainWhitelistManager()
         item = manager.get_agency_domain_whitelist_by_id(id)
         result = agency_domain_whitelist_schema.dump(item)
         return jsonify(result.data), 200
 
     @staticmethod
-    @blueprint_agencies_domain_whitelist.route("/", methods=["POST"])
-    def add_agency():
+    @blueprint_agencies_domain_whitelists.route("/", methods=["POST"])
+    def add_agency_domain_whitelist():
         manager = AgencyDomainWhitelistManager()
         try:
             schmea_item = agency_domain_whitelist_input_schema.load(request.json).data
@@ -46,8 +46,8 @@ class AgencyDomainWhitelistController(object):
             return jsonify({"info": str(exc)}), 400
 
     @staticmethod
-    @blueprint_agencies_domain_whitelist.route("/<int:id>", methods=["DELETE"])
-    def delete_agency(id):
+    @blueprint_agencies_domain_whitelists.route("/<int:id>", methods=["DELETE"])
+    def delete_agency_domain_whitelist(id):
         manager = AgencyDomainWhitelistManager()
         item = manager.get_agency_domain_whitelist_by_id(id)
         if item is not None:

@@ -43,5 +43,4 @@ SQLAlchemy==1.3.5
 traitlets==4.3.2
 wcwidth==0.1.7
 Werkzeug==0.15.4
-Flask-HTTPBasicAuth
-Flask-Fixtures
+geopy==2.0.0
