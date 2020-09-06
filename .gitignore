@@ -1,0 +1,10 @@
+__pycache__
+.DS_Store
+venv
+*.idea
+authenticaton.pyc
+testalch.pyc
+testviews.pyc
+.data
+migrations
+.env

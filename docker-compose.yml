@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1996:1996"
+    links:
+      - db
+    volumes:
+      - .:/app
+    command: tail -f /dev/null
+    # command: bash -c "python manage.py db migrate && python manage.py db upgrade && python initial.py && python manage.py runserver"
+
+    env_file:
+      - .env
+
+  db:
+    image: mdillon/postgis:10
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - '5400:5432'
+    volumes:
+      - ./.data/dbpgdata:/var/lib/postgresql/data
+
+
+
+
+
+
+
