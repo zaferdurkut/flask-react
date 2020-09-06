@@ -44,3 +44,5 @@ traitlets==4.3.2
 wcwidth==0.1.7
 Werkzeug==0.15.4
 geopy==2.0.0
+pytest==6.0.1
+Flask-Testing==0.8.0
