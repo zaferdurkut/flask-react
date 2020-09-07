@@ -13,7 +13,7 @@ services:
     volumes:
       - .:/app
     # command: tail -f /dev/null
-    command: bash -c "python manage.py db upgrade && pytest &&python manage.py runserver"
+    command: bash -c "python manage.py db upgrade && pytest && python manage.py runserver"
 
     env_file:
       - .env
