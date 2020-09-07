@@ -14,7 +14,7 @@ from sqlalchemy.exc import IntegrityError
 blueprint_brokers = Blueprint("/api/brokers", __name__, url_prefix="/api/brokers")
 
 
-class AgencyController(object):
+class BrokerController(object):
 
     @staticmethod
     @blueprint_brokers.route("/", methods=["GET"])
