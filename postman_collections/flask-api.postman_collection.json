@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "70978ec6-81ae-423c-be51-4a2f1ea2c534",
+		"name": "flask-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "service-status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/common/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"common",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "initial-data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/common/inital-data",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"common",
+								"inital-data"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "agencies",
+			"item": [
+				{
+					"name": "get item by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies/12",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add agency",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"address\": \"Turkey\",\n        \"domain\": \"cyberrisksolved.com\",\n        \"title\": \"Test Title\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete agency",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies/19",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies",
+								"19"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ff678d4f-947a-4241-9fa4-d2aba1a402bf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "156cfd99-48fc-4b26-a063-11eb10754400",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "brokers",
+			"item": [
+				{
+					"name": "get item by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/brokers/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"brokers",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/brokers/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"brokers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add broker",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"zafer\",\n    \"last_name\": \"durkut\",\n    \"email\": \"zafer11@cyberworld.com\",\n    \"address\": \"san francisco\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/brokers/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"brokers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete agency",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/brokers/2",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"brokers",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "a4e5a63d-e66b-440e-828b-e30a4ec0d0d1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "c66a354f-88b7-4af8-8d55-d5d03677e04f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "agencies domain whitelist",
+			"item": [
+				{
+					"name": "get item by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies-domain-whitelist/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies-domain-whitelist",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies-domain-whitelist/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies-domain-whitelist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add agency domain whitelist",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"domain\": \"cyberrisksolved.com\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies-domain-whitelist/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies-domain-whitelist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete agency",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/agencies-domain-whitelist/6",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"agencies-domain-whitelist",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "74cecbb2-ef6c-43af-a3e1-c6ce9137e354",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "27297ff8-c672-40ea-8288-80fd29d69226",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
