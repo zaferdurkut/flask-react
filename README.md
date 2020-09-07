@@ -9,6 +9,7 @@ If you want to change API port, should be entered PORT in env file and should be
     
 Install
 ----
+After installation, you should be waiting a little time for initial data and service deploying
 
     docker-compose up -d --build
 
