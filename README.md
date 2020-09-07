@@ -5,7 +5,7 @@ Configuration
 For API, "HERE_GEOCODING_API_KEY" parameter should be entered for distance based geocoding agency
 If you want to change API port, should be entered PORT in env file and should be change ports ("1996:1996") in docker-compose.yml file
     
-    'cp default.env .env'
+    cp default.env .env
     
 Install
 ----
