@@ -36,6 +36,7 @@ class BrokerController(object):
     @blueprint_brokers.route("/", methods=["POST"])
     def add_broker():
         try:
+            print(request.json)
             manager = BrokerManager()
             schmea_item = broker_input_schema.load(request.json).data
 
