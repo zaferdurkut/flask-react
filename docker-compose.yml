@@ -30,6 +30,21 @@ services:
     volumes:
       - ./.data/dbpgdata:/var/lib/postgresql/data
 
+  web:
+    build: ./web
+    ports:
+        - "3000:3000"
+    volumes:
+      - ./web:/web
+    links:
+      - app
+    environment:
+      NODE_ENV: development
+      PORT: 3000
+    restart: on-failure
+    stdin_open: true
+
+    # command: bash -c "npm start"
 
 
 

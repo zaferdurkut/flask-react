@@ -9,6 +9,8 @@ from api.broker import blueprint_brokers
 from api.common import blueprint_common
 from config.config import config
 from utils.extensions import db
+from flask_cors import CORS
+
 
 load_dotenv()
 ENV = os.getenv('ENV', 'default')
@@ -19,6 +21,7 @@ if ENV not in config:
 
 def create_app():
     app = Flask(__name__)
+    cors = CORS(app)
     app.config.from_object(config[ENV]())
     register_extensions(app)
     register_blueprints(app)
