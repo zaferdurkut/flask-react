@@ -38,4 +38,7 @@ Endpoints
 
 WEB
 ---
+You can reach from below url with default settings
+
+    http://localhost:3000/
 
