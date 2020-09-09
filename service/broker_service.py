@@ -39,6 +39,9 @@ class BrokerService(object):
 
             near_location_id = self.get_id_from_calculate_distance(locations=locations, main_location=main_location)
 
+            if near_location_id is not None:
+                geocoding_match_items = True
+
             broker_input_schema["agency_id"] = near_location_id
 
             if geocoding_match_items is None:
@@ -64,7 +67,6 @@ class BrokerService(object):
 
         r = requests.get(url=self.here_url, params=params)
         data = r.json()
-
         latitude = data['items'][0]['position']['lat']
         longitude = data['items'][0]['position']['lng']
 
@@ -74,9 +76,11 @@ class BrokerService(object):
 
         near_location_id = 0
         near_location_distance = None
+        print("main_location", main_location)
         for key, value in locations.items():
             distance = distance_func.distance(value, main_location).km
-            print(near_location_distance)
+
+            print(key, value, near_location_distance)
 
             if near_location_distance is None:
                 near_location_distance = distance
@@ -85,4 +89,6 @@ class BrokerService(object):
             if distance < near_location_distance:
                 near_location_distance = distance
                 near_location_id = key
+
+        print(near_location_id)
         return near_location_id
