@@ -1,5 +1,8 @@
+import json
+
 from flask import jsonify, Blueprint, request
 from marshmallow.exceptions import ValidationError
+from flask_cors import cross_origin
 
 from manager.broker import BrokerManager
 from models.agency import Agency
@@ -8,8 +11,6 @@ from schemas.agency import agency_output_schema, agency_input_schema
 from schemas.broker import broker_output_list_schema, broker_output_schema, broker_input_schema
 from service.broker_service import BrokerService
 from sqlalchemy.exc import IntegrityError
-
-
 
 blueprint_brokers = Blueprint("/api/brokers", __name__, url_prefix="/api/brokers")
 
@@ -33,12 +34,18 @@ class BrokerController(object):
         return jsonify(result.data), 200
 
     @staticmethod
-    @blueprint_brokers.route("/", methods=["POST"])
+    @blueprint_brokers.route("/", methods=["POST", "OPTIONS"])
+    @cross_origin()
     def add_broker():
         try:
-            print(request.json)
+
+            if request.data is None:
+                return jsonify({"info": str("request body is empty")}), 400
+
+            data = json.loads(request.data)
+
             manager = BrokerManager()
-            schmea_item = broker_input_schema.load(request.json).data
+            schmea_item = broker_input_schema.load(data).data
 
             schmea_item = BrokerService().find_agency_id(schmea_item)
 
@@ -51,9 +58,10 @@ class BrokerController(object):
         except ValidationError as exc:
             return jsonify({"info": str(exc)}), 400
         except IntegrityError as exc:
-            return jsonify({"info": "Your record already exists"}), 400
+            return jsonify({"info": "Your record already exists"}), 409
         except Exception as exc:
-            return jsonify({"info": str(exc)}), 422
+            print(exc)
+            return jsonify({"info": str(exc)}), 500
 
     @staticmethod
     @blueprint_brokers.route("/<int:id>", methods=["DELETE"])

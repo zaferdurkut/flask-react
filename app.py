@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, make_response
 from flask_migrate import Migrate
 from dotenv import load_dotenv
 
@@ -21,7 +21,8 @@ if ENV not in config:
 
 def create_app():
     app = Flask(__name__)
-    cors = CORS(app)
+    CORS(app)
+    app.config['CORS_HEADERS'] = 'Content-Type'
     app.config.from_object(config[ENV]())
     register_extensions(app)
     register_blueprints(app)

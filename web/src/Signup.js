@@ -8,6 +8,23 @@ import Col from "react-bootstrap/Col";
 import Label from "reactstrap/es/Label";
 import Input from "reactstrap/es/Input";
 
+function CheckError(response) {
+    if (response.status >= 200 && response.status <= 299) {
+        return response.json();
+    } else if (response.status == 400) {
+        alert("Your request items not valid");
+        console.log(response.status)
+    } else if (response.status == 412) {
+        alert("Your mail domain does not match the our agencies");
+        console.log(response.status)
+    } else if (response.status == 409) {
+        alert("Your record already exists");
+        console.log(response.status)
+    } else {
+        console.log(response)
+
+    }
+}
 
 export default class NameForm extends React.Component {
     constructor(props) {
@@ -17,7 +34,8 @@ export default class NameForm extends React.Component {
 
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
-    }
+    };
+
 
     handleSubmit = (event) => {
         fetch("http://localhost:1996/api/brokers/", {
@@ -26,17 +44,17 @@ export default class NameForm extends React.Component {
                 headers: {
                     "content_type": "application/json",
                 },
+
                 body: JSON.stringify(this.state)
             }
-        ).then(response => {
-
-          console.log(response)
-        })
+        ).then(CheckError)
             .then(json => {
+                window.location.reload();
 
-                console.log(json)
-            })
-
+            }).catch((error) => {
+            // Handle the error
+            console.log(error);
+        });
         event.preventDefault();
     };
 
